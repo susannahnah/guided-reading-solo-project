@@ -26,6 +26,8 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/books', bookRouter);
+// app.use('api/book_genres', bookRouter);
+
 
 // Serve static files
 app.use(express.static('build'));
