@@ -17,10 +17,10 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 
-import BookDetails from '../BookDetails/BookDetails.js';
-import Edit from '../Edit/Edit.js';
-import IndividualBookList from '../IndividualBookList/IndividualBookList.js';
-import Home from '../Home/Home.js';
+// import BookDetails from '../BookDetails/BookDetails.js';
+// import Edit from '../Edit/Edit.js';
+// import IndividualBookList from '../IndividualBookList/IndividualBookList.js';
+// import Home from '../Home/Home.js';
 
 
 import './App.css';
