@@ -4,3 +4,10 @@ Hexidecimal -
     Shift+ command + 4 (press 'escape' to not take photo)= screenshot to figure out pixels; click and drag to figure out how big/small something is
 
     sessions.edu/color-calculator
+
+    @media = use for placement!
+
+    material design icons
+
+    learn css grid - bootstrap
+    flexbox

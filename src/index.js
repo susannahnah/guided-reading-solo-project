@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
 
 import rootReducer from './redux/reducers'; // imports ./redux/reducers/index.js
 import rootSaga from './redux/sagas'; // imports ./redux/sagas/index.js
-
+import axios from 'axios';
+import { takeEvery, put } from "redux-saga/effects";
 import App from './components/App/App';
+
+
+// Create the rootSaga generator function:
+
+
 
 const sagaMiddleware = createSagaMiddleware();
 
