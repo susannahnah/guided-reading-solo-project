@@ -19,15 +19,16 @@ import InfoPage from '../InfoPage/InfoPage';
 
 // import BookDetails from '../BookDetails/BookDetails.js';
 // import Edit from '../Edit/Edit.js';
-// import IndividualBookList from '../IndividualBookList/IndividualBookList';
-// import OrganizedBooks from './OrganizedBooks/OrganizedBooks'
-// import WelcomePage from './WelcomePage/WelcomePage';
+import IndividualBookList from '../IndividualBookList/IndividualBookList';
+import OrganizedBooks from '../OrganizedBooks/OrganizedBooks'
+// import WelcomePage from '../WelcomePage/WelcomePage';
 
 import './App.css';
 
 class App extends Component {
   componentDidMount () {
     this.props.dispatch({type: 'FETCH_USER'})
+    this.props.dispatch({ type: 'FETCH_BOOKS' })
   }
 
   render() {
@@ -44,6 +45,16 @@ class App extends Component {
               exact
               path="/about"
               component={AboutPage}
+            />
+            <Route
+              exact
+              path="/organizedbooks"
+              component={OrganizedBooks}
+            />
+            <Route
+              exact
+              path="/individualbook"
+              component={IndividualBookList}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.

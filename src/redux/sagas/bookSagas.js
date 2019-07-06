@@ -5,7 +5,9 @@ import { put, takeEvery } from 'redux-saga/effects';
   // // Get all books function:
   function* fetchBooksSaga(action) {
     try {
-      const bookResponse = yield axios.get('/books')
+      const bookResponse = yield axios.get('/api/books')
+      console.log('hey books!', bookResponse);
+      
       yield put({ type: 'SET_BOOKS', payload: bookResponse.data });
       console.log('end of fetchBooksSaga')
     } catch (error) {
