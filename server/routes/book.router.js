@@ -35,6 +35,38 @@ router.get('/book_genres', (req, res) => {
     });
 });
 
+// GET selected grade levels: 
+router.get('/grade_levels', (req, res) => {
+    pool.query(`SELECT "grades"."grade", "books"."title" from "grades"
+    JOIN "grade_levels"
+    ON "grade_levels"."grade_id"="grades"."id"
+    JOIN "books" ON "books"."id"="grade_levels"."book_id"
+    WHERE "grade_levels"."book_id"=$1;`, [req.query.id])
+    .then((response) => {
+        res.send(response.rows);
+    })
+    .catch((error) => {
+        console.log('Error completing SELECT book genres', error);
+        res.sendStatus(500)  
+    });
+});
+
+// Route for updating movie info on database
+router.put('/edit', (req, res) => {
+    pool.query(`UPDATE "books"
+    SET "title"=$1, "author"=$2, "image"=$2, "level"=$3, "grade"=$4, "summary"=$5
+    WHERE "id"=$6;`, [req.body.title, req.body.author, req.body.image, req.body.level, 
+        req.body.grade, req.body.summary, req.body.id])
+    .then((response) => {
+        res.sendStatus(200)
+    })
+    .catch((error) => {
+        console.log('Error completing UPDATE of movies', error);
+        res.sendStatus(500)
+    });
+});
+
+
 /**
  * POST route template
  */
