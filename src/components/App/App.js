@@ -19,9 +19,9 @@ import InfoPage from '../InfoPage/InfoPage';
 
 // import BookDetails from '../BookDetails/BookDetails.js';
 // import Edit from '../Edit/Edit.js';
-// import IndividualBookList from '../IndividualBookList/IndividualBookList.js';
-// import Home from '../Home/Home.js';
-
+// import IndividualBookList from '../IndividualBookList/IndividualBookList';
+// import OrganizedBooks from './OrganizedBooks/OrganizedBooks'
+// import WelcomePage from './WelcomePage/WelcomePage';
 
 import './App.css';
 

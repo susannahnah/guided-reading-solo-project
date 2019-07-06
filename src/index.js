@@ -7,27 +7,8 @@ import logger from 'redux-logger';
 
 import rootReducer from './redux/reducers'; // imports ./redux/reducers/index.js
 import rootSaga from './redux/sagas'; // imports ./redux/sagas/index.js
-// import axios from 'axios';
-// import { takeEvery, put } from "redux-saga/effects";
+
 import App from './components/App/App';
-
-
-// Create the rootSaga generator function:
-// function* rootSaga() {
-//   yield takeEvery('FETCH_MOVIES', fetchBooksSaga);
-// }
-
-// // Get all books function:
-// function* fetchBooksSaga(action) {
-//   try {
-//     const bookResponse = yield axios.get('/books')
-//     yield put({ type: 'SET_BOOKS', payload: bookResponse.data });
-//     console.log('end of fetchBooksSaga')
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
- 
 
 const sagaMiddleware = createSagaMiddleware();
 

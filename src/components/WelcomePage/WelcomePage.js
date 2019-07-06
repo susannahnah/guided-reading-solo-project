@@ -9,4 +9,4 @@ const mapStateToProps = reduxState => ({
     reduxState,
 });
 
-export default connect(mapStateToProps)(Edit);
+export default connect(mapStateToProps)(WelcomePage);

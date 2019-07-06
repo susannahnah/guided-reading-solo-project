@@ -51,12 +51,30 @@ router.get('/grade_levels', (req, res) => {
     });
 });
 
+//POST a new book
+
+
 // Route for updating movie info on database
 router.put('/edit', (req, res) => {
+    const updatedBook = req.body;
+
     pool.query(`UPDATE "books"
-    SET "title"=$1, "author"=$2, "image"=$2, "level"=$3, "grade"=$4, "summary"=$5
-    WHERE "id"=$6;`, [req.body.title, req.body.author, req.body.image, req.body.level, 
-        req.body.grade, req.body.summary, req.body.id])
+    SET "title"=$1, 
+    "author"=$2, 
+    "image"=$2, 
+    "level"=$3, 
+    "grade"=$4, 
+    "summary"=$5
+    WHERE "id"=$6;`, 
+    [
+        updatedBook.title, 
+        updatedBook.author, 
+        updatedBook.image, 
+        updatedBook.level, 
+        updatedBook.grade, 
+        updatedBook.summary, 
+        updatedBook.id
+    ])
     .then((response) => {
         res.sendStatus(200)
     })
