@@ -55,17 +55,18 @@ router.get('/grade_levels', (req, res) => {
 
 
 // Route for updating movie info on database
-router.put('/edit', (req, res) => {
+router.put('/', (req, res) => {
+    console.log(req.body);
     const updatedBook = req.body;
 
     pool.query(`UPDATE "books"
     SET "title"=$1, 
     "author"=$2, 
-    "image"=$2, 
-    "level"=$3, 
-    "grade"=$4, 
-    "summary"=$5
-    WHERE "id"=$6;`, 
+    "image"=$3, 
+    "level"=$4, 
+    "grade"=$5, 
+    "summary"=$6
+    WHERE "id"=$7;`, 
     [
         updatedBook.title, 
         updatedBook.author, 

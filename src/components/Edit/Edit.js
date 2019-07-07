@@ -3,36 +3,47 @@ import { connect } from 'react-redux';
 
 class Edit extends Component {
     state = {
+        id: '',
         title: '',
         author: '',
         image: '',
-        level: '', 
+        level: '',
         grade: '',
         summary: '',
     }
 
     componentDidMount() {
-        this.setState()
+        this.setState({
+            id: this.props.reduxState.individualBookReducer.id,
+            title: this.props.reduxState.individualBookReducer.title,
+            author: this.props.reduxState.individualBookReducer.author,
+            image: this.props.reduxState.individualBookReducer.image,
+            level: this.props.reduxState.individualBookReducer.level,
+            grade: this.props.reduxState.individualBookReducer.grade,
+            summary: this.props.reduxState.individualBookReducer.summary,
+        })
     };
 
     handleChange = (event) => {
         console.log('info changed')
         this.setState({
             ...this.state,
-        [event.target.id]: event.target.value
+            [event.target.id]: event.target.value
         })
     };
 
-//cancel edit function
+    //cancel edit function
     cancelEditButton = () => {
         this.props.history.push('/details')
     };
 
-    
-//submit edit function
+
+    //submit edit function
     submitNewEdits = (event) => {
+        console.log(this.state);
+        
         event.preventDefault();
-        this.props.dispatch({ type: 'EDIT_BOOK', payload: {...this.state, id:this.props.reduxState.individualBookReducer}})
+        this.props.dispatch({ type: 'EDIT_BOOK', payload: this.state })
         this.props.history.push('/bookdetails')
     };
 
@@ -64,7 +75,7 @@ class Edit extends Component {
                     <br />
                     <button onClick={this.cancelEditButton}>Cancel Edits</button>
                 </form>
-             </div>
+            </div>
         )
     }
 

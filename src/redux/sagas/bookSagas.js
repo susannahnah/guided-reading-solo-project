@@ -27,7 +27,7 @@ import { put, takeEvery } from 'redux-saga/effects';
    
 //UPDATE specific book
 function* editBookSaga(action) {
-  yield axios.put(`/edit`, action.payload)
+  yield axios.put(`/api/books`, action.payload)
   yield put({ type: 'FETCH_BOOKS'})
 }
 
