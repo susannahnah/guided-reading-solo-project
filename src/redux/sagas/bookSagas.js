@@ -15,17 +15,27 @@ import { put, takeEvery } from 'redux-saga/effects';
     }
   };
 
-  // Get specific books
-  // function* selectBookSaga(action) {
-  //   yield put({ type: 'SET_INDIVIDUAL_BOOK', payload: action.payload.id })
-  //   const bookGenre = yield axios.get(`/book_genres?id=${action.payload.id}`)
-  //   yield put ({ type: 'SET_GENRES', payload: bookGenre.data })
-  //   console.log('end of selectBookSaga');
-
-  // }
+  // Get specific book
+  function* selectBookSaga(action) {
+    yield put({ type: 'SET_INDIVIDUAL_BOOK', payload: action.payload })
+    // const bookGenre = yield axios.get(`/book_genres?id=${action.payload.id}`)
+    //   yield put ({ type: 'SET_GENRES', payload: bookGenre.data })
+    // const bookGrade = yield axios.get(`/grade_levels?id=${action.payload.id}`)
+    //   yield put ({ type: 'SET_GRADES', payload: bookGrade.data })
+    console.log('end of selectBookSaga');
+  }
    
+//UPDATE specific book
+function* editBookSaga(action) {
+  yield axios.put(`/edit`, action.payload)
+  yield put({ type: 'FETCH_BOOKS'})
+}
+
+//all Book Sagas
 function* bookSagas() {
     yield takeEvery('FETCH_BOOKS', fetchBooksSaga)
+    yield takeEvery('SELECT_BOOK', selectBookSaga)
+    yield takeEvery('EDIT_BOOK', editBookSaga )
 }
 
 

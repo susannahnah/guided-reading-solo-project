@@ -5,10 +5,10 @@ import Grid from '@material-ui/core/Grid';
 
 class IndividualBookList extends Component {
     
-    // handleClick = () => {
-    //     this.props.dispatch({type: 'SELECT_BOOK', payload: this.props.book})
-    //     this.props.history.push('/bookdetails')
-    // }
+    handleClick = () => {
+        this.props.dispatch({type: 'SELECT_BOOK', payload: this.props.book})
+        this.props.history.push('/bookdetails')
+    }
     
     render() {
         return (
@@ -28,6 +28,7 @@ class IndividualBookList extends Component {
 
 const mapStateToProps = reduxState => ({
     reduxState,
+    user: reduxState.user,
 });
 
 export default connect(mapStateToProps)(IndividualBookList);

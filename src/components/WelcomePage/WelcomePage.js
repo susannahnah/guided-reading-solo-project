@@ -6,11 +6,13 @@ import Grid from '@material-ui/core/Grid';
 
 class WelcomePage extends Component {
 
-    onClick = (event) => {
+    onClick = (level) => {
+        console.log('this works?', level);
+        
         this.props.history.push({
             pathname: '/organizedbooks',
             state: {
-                  level: event.target.id
+                  level: level
              }
        })
     }
@@ -19,16 +21,16 @@ class WelcomePage extends Component {
         return (
             <>
                 <Grid container>
-                <Button variant="contained" color="inherent" padding="10dp" id='A' onClick = {this.onClick}>
+                <Button variant="contained" color="inherent" padding="10dp" id='A' onClick = {()=>this.onClick('A')}>
                 Level A
                 </Button>
                 <Button variant="contained" color="inherent" padding="10dp" id='B' onClick = {this.onClick}>
                 Level B
                 </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='C' onClick = {this.onClick}>
+                <Button variant="contained" color="inherent" padding="10dp" id='C' onClick = {()=>this.onClick('C')}>
                 Level C
                 </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='D' onClick = {this.onClick}>
+                <Button variant="contained" color="inherent" padding="10dp" id='D' onClick = {()=>this.onClick('D')}>
                 Level D
                 </Button>
                 <Button variant="contained" color="inherent" padding="10dp" id='E' onClick = {this.onClick}>

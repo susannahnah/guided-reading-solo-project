@@ -17,9 +17,8 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 
-// import BookDetails from '../BookDetails/BookDetails.js';
-// import Edit from '../Edit/Edit.js';
-import IndividualBookList from '../IndividualBookList/IndividualBookList';
+import BookDetails from '../BookDetails/BookDetails.js';
+import Edit from '../Edit/Edit.js';
 import OrganizedBooks from '../OrganizedBooks/OrganizedBooks'
 import WelcomePage from '../WelcomePage/WelcomePage';
 
@@ -58,8 +57,13 @@ class App extends Component {
             />
             <Route
               exact
-              path="/individualbook"
-              component={IndividualBookList}
+              path="/edit"
+              component={Edit}
+            />
+             <Route
+              exact
+              path="/bookdetails"
+              component={BookDetails}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
