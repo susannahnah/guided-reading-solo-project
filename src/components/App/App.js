@@ -21,7 +21,7 @@ import InfoPage from '../InfoPage/InfoPage';
 // import Edit from '../Edit/Edit.js';
 import IndividualBookList from '../IndividualBookList/IndividualBookList';
 import OrganizedBooks from '../OrganizedBooks/OrganizedBooks'
-// import WelcomePage from '../WelcomePage/WelcomePage';
+import WelcomePage from '../WelcomePage/WelcomePage';
 
 import './App.css';
 
@@ -45,6 +45,11 @@ class App extends Component {
               exact
               path="/about"
               component={AboutPage}
+            />
+            <Route
+              exact
+              path="/welcome"
+              component={WelcomePage}
             />
             <Route
               exact

@@ -17,15 +17,15 @@ class OrganizedBooks extends Component {
     render() {
         return (
             <>
-                <h1>Level C</h1>
+                <h1>Level enterlevelhere</h1>
                 <Grid container>
                     {this.props.reduxState.allBooksReducer.map(book => {
-                        if ( book.level === 'C' ) {
+                        if ( book.level === this.props.location.state.level ) {
                             return <IndividualBookList key={book.id} book={book} history={this.props.history} />
                         }
                     })}
                     <pre>
-                        {JSON.stringify(this.props.reduxState.allBooksReducer, null, 2)}
+                        {JSON.stringify(this.props.location.state.level, null, 2)}
                     </pre>
 
                 </Grid>
