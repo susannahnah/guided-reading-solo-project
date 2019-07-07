@@ -44,7 +44,7 @@ class Edit extends Component {
         
         event.preventDefault();
         this.props.dispatch({ type: 'EDIT_BOOK', payload: this.state })
-        this.props.history.push('/bookdetails')
+        this.props.history.push('/welcome')
     };
 
     render() {
