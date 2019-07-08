@@ -3,15 +3,27 @@ const pool = require('../modules/pool');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const router = express.Router();
 
-/**
- * GET route template
- */
+
 // GET all books
-router.get('/', rejectUnauthenticated, (req, res) => {
+router.get('/', (req, res) => {
     const queryText = 'SELECT * FROM "books" ORDER BY "id"'; 
     pool.query(queryText)
     .then((result) => {
         res.send(result.rows); 
+    })
+    .catch((error) => {
+    console.log('Error completely SELECT book query', error)
+    res.sendStatus(500)
+    })
+})
+
+router.get('/:id', (req, res) => {
+    const queryText = 'SELECT * FROM "books" WHERE "id"=$1'; 
+    console.log('what is going on', req.params.id);
+    
+    pool.query(queryText, [req.params.id])
+    .then((result) => {
+        res.send(result.rows[0]); 
     })
     .catch((error) => {
     console.log('Error completely SELECT book query', error)
@@ -52,10 +64,30 @@ router.get('/grade_levels', (req, res) => {
 });
 
 //POST a new book
-
+router.post('/', rejectUnauthenticated, (req, res) => {
+    const newBook = req.body;
+    const queryText = `INSERT INTO "books" ("title", "author", "image", "level", "grade", "summary")
+                      VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"`;
+    const queryValues = [
+      newBook.title,
+      newBook.author,
+      newBook.image,
+      newBook.level,
+      newBook.grade,
+      newBook.summary,
+    ];
+    pool.query(queryText, queryValues)
+      .then((result) => { res.sendStatus(201); 
+    console.log(result);
+    })
+      .catch((error) => {
+        console.log('Error completing POST book query', error);
+        res.sendStatus(500);
+      });
+  });
 
 // Route for updating movie info on database
-router.put('/', (req, res) => {
+router.put('/', rejectUnauthenticated, (req, res) => {
     console.log(req.body);
     const updatedBook = req.body;
 
@@ -86,12 +118,5 @@ router.put('/', (req, res) => {
 
 });
 
-
-/**
- * POST route template
- */
-router.post('/api/books', (req, res) => {
-
-});
 
 module.exports = router;

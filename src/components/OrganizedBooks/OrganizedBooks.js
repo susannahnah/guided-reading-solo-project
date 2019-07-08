@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import IndividualBookList from '../IndividualBookList/IndividualBookList';
 import Grid from '@material-ui/core/Grid';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 
 class OrganizedBooks extends Component {
@@ -15,6 +16,10 @@ class OrganizedBooks extends Component {
         this.getBooks()
     }
 
+    handleNewBookClick = () => {
+        this.props.history.push('/newbook')
+    };
+
     render() {
         return (
             <>
@@ -24,7 +29,7 @@ class OrganizedBooks extends Component {
                     {JSON.stringify(this.props.location.state, null, 2)}
                 </pre>
                 {this.props.user.id === 1 &&
-                <button>Add New Book</button>
+                 <Button variant="contained" color="inherent" onClick={this.handleNewBookClick}>Add New Book</Button>
                 }
                 <br />
                 <h1>Level {this.props.location.state.level}</h1>
@@ -44,7 +49,7 @@ class OrganizedBooks extends Component {
             <Redirect to="/welcome" />
             </>
             }
-                
+            
             </>
 
         )

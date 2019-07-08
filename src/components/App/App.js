@@ -21,6 +21,7 @@ import BookDetails from '../BookDetails/BookDetails.js';
 import Edit from '../Edit/Edit.js';
 import OrganizedBooks from '../OrganizedBooks/OrganizedBooks'
 import WelcomePage from '../WelcomePage/WelcomePage';
+import NewBook from '../NewBook/NewBook';
 
 import './App.css';
 
@@ -62,8 +63,13 @@ class App extends Component {
             />
              <Route
               exact
-              path="/bookdetails"
+              path="/bookdetails/:id"
               component={BookDetails}
+            />
+            <Route
+              exact
+              path="/newbook"
+              component={NewBook}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.

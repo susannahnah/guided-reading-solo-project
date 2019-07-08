@@ -5,6 +5,13 @@ import Button from '@material-ui/core/Button'
 
 class BookDetails extends Component {
 
+    componentDidMount() {
+        this.props.dispatch({
+            type: 'SELECT_BOOK',
+            payload: this.props.match.params.id,
+        })
+    };
+    
     // handleBackClick = () => {
     //     this.props.history.push('/')
     // };
@@ -44,7 +51,7 @@ class BookDetails extends Component {
                {this.props.user.id === 1 &&
             <>
                 <Button variant="contained" color="inherent" onClick={this.handleEditClick}>Edit Book</Button>
-                {/* <Button variant="contained" color="inherent" onClick={this.handleDeleteClick}>Delete Movie</Button> */}
+                <Button variant="contained" color="inherent" onClick={this.handleDeleteClick}>Delete Book</Button>
             </>
             }
             </>

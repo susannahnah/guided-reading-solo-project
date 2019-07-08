@@ -7,7 +7,7 @@ class IndividualBookList extends Component {
     
     handleClick = () => {
         this.props.dispatch({type: 'SELECT_BOOK', payload: this.props.book})
-        this.props.history.push('/bookdetails')
+        this.props.history.push(`/bookdetails/${this.props.book.id}`)
     }
     
     render() {
