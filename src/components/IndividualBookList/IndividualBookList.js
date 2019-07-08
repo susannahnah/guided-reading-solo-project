@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 class IndividualBookList extends Component {
     
     handleClick = () => {
-        this.props.dispatch({type: 'SELECT_BOOK', payload: this.props.book})
+        this.props.dispatch({type: 'SELECT_BOOK', payload: this.props.book.id})
         this.props.history.push(`/bookdetails/${this.props.book.id}`)
     }
     

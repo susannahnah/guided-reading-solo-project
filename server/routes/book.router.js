@@ -17,6 +17,8 @@ router.get('/', (req, res) => {
     })
 })
 
+
+//GET selected books
 router.get('/:id', (req, res) => {
     const queryText = 'SELECT * FROM "books" WHERE "id"=$1'; 
     console.log('what is going on', req.params.id);
@@ -31,7 +33,8 @@ router.get('/:id', (req, res) => {
     })
 })
 
-// GET selected books:
+
+// GET selected genres:
 router.get('/book_genres', (req, res) => {
     pool.query(`SELECT "genres"."genre", "books"."title" from "genres"
     JOIN "book_genres"
@@ -46,6 +49,7 @@ router.get('/book_genres', (req, res) => {
         res.sendStatus(500)  
     });
 });
+
 
 // GET selected grade levels: 
 router.get('/grade_levels', (req, res) => {
@@ -62,6 +66,7 @@ router.get('/grade_levels', (req, res) => {
         res.sendStatus(500)  
     });
 });
+
 
 //POST a new book
 router.post('/', rejectUnauthenticated, (req, res) => {
@@ -85,6 +90,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         res.sendStatus(500);
       });
   });
+
 
 // Route for updating movie info on database
 router.put('/', rejectUnauthenticated, (req, res) => {
@@ -118,5 +124,16 @@ router.put('/', rejectUnauthenticated, (req, res) => {
 
 });
 
+
+// DELETE from database
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    const queryText = 'DELETE FROM "books" WHERE id=$1';
+    pool.query(queryText, [req.params.id])
+      .then(() => { res.sendStatus(200); })
+      .catch((err) => {
+        console.log('Error completing DELETE book query', err);
+        res.sendStatus(500);
+      });
+  });
 
 module.exports = router;

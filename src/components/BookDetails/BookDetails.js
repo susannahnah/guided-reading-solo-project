@@ -11,21 +11,30 @@ class BookDetails extends Component {
             payload: this.props.match.params.id,
         })
     };
-    
-    // handleBackClick = () => {
-    //     this.props.history.push('/')
-    // };
+
+    handleBackClick = () => {
+        this.props.history.push('/organizedbooks');
+    };
 
     handleEditClick = () => {
         this.props.history.push('/edit')
     };
 
+    handleDeleteClick = () => {
+        this.props.dispatch({
+            type: 'DELETE_BOOK',
+            payload: this.props.match.params.id,
+        })
+        this.props.history.push('/welcome')
+    };
+
     render() {
         return (
             <>
-               <h1>
+            {/* <Button variant="contained" color="inherent" onClick={this.handleBackClick}>Back</Button> */}
+               <h2>
                 {this.props.reduxState.individualBookReducer.title}
-                </h1>
+                </h2>
                 <br />
                 {this.props.reduxState.individualBookReducer.author}
                 <br />

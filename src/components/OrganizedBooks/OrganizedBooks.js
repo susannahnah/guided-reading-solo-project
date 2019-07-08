@@ -4,6 +4,8 @@ import IndividualBookList from '../IndividualBookList/IndividualBookList';
 import Grid from '@material-ui/core/Grid';
 import { Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import AppBar from '@material-ui/core/AppBar';
+
 
 
 class OrganizedBooks extends Component {
@@ -25,14 +27,9 @@ class OrganizedBooks extends Component {
             <>
             {this.props.location.state ?
             <>
-            <pre>
-                    {JSON.stringify(this.props.location.state, null, 2)}
-                </pre>
-                {this.props.user.id === 1 &&
-                 <Button variant="contained" color="inherent" onClick={this.handleNewBookClick}>Add New Book</Button>
-                }
-                <br />
-                <h1>Level {this.props.location.state.level}</h1>
+                <AppBar position="static">
+                <h2>Level {this.props.location.state.level}</h2>
+                </AppBar>
                 <Grid container>
                     {this.props.reduxState.allBooksReducer.map(book => {
                        
@@ -40,9 +37,10 @@ class OrganizedBooks extends Component {
                             return <IndividualBookList key={book.id} book={book} history={this.props.history} />
                         }
                     })}
-
-
                 </Grid>
+                {this.props.user.id === 1 &&
+                 <Button variant="contained" color="inherent" onClick={this.handleNewBookClick}>Add New Book</Button>
+                }
             </>
             :
             <>

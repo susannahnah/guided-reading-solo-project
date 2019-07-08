@@ -33,8 +33,8 @@ class Edit extends Component {
     };
 
     //cancel edit function
-    cancelEditButton = () => {
-        this.props.history.push('/details')
+    cancelEditButton = (event) => {
+        this.props.history.push('/bookdetails')
     };
 
 
@@ -73,7 +73,7 @@ class Edit extends Component {
                     <button type='Submit' value='Book Edits'>Submit Changes</button>
                     <br />
                     <br />
-                    <button onClick={this.cancelEditButton}>Cancel Edits</button>
+                    {/* <button onClick={this.cancelEditButton}>Cancel Edits</button> */}
                 </form>
             </div>
         )

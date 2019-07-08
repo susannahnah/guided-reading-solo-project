@@ -45,7 +45,7 @@ function* postBookSaga(action) {
   }
 }
 
-
+//DELETE book
 function* deleteBookSaga(action) {
   console.log('deleteBookSaga hit')
   try {
