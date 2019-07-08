@@ -34,7 +34,7 @@ class Edit extends Component {
 
     //cancel edit function
     cancelEditButton = (event) => {
-        this.props.history.push('/bookdetails')
+        this.props.history.push(`/bookdetails/${this.props.reduxState.individualBookReducer.id}`)
     };
 
 
@@ -73,7 +73,7 @@ class Edit extends Component {
                     <button type='Submit' value='Book Edits'>Submit Changes</button>
                     <br />
                     <br />
-                    {/* <button onClick={this.cancelEditButton}>Cancel Edits</button> */}
+                    <button onClick={this.cancelEditButton}>Cancel Edits</button>
                 </form>
             </div>
         )

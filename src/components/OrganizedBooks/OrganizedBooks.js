@@ -22,6 +22,10 @@ class OrganizedBooks extends Component {
         this.props.history.push('/newbook')
     };
 
+    handleBackClick = () => {
+        this.props.history.push('/welcome')
+    };
+    
     render() {
         return (
             <>
@@ -30,6 +34,7 @@ class OrganizedBooks extends Component {
                 <AppBar position="static">
                 <h2>Level {this.props.location.state.level}</h2>
                 </AppBar>
+                <Button variant="contained" color="inherent" onClick={this.handleBackClick}>Back</Button>
                 <Grid container>
                     {this.props.reduxState.allBooksReducer.map(book => {
                        
