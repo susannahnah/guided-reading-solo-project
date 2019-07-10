@@ -15,6 +15,19 @@ import { put, takeEvery } from 'redux-saga/effects';
     }
   };
 
+ // Get all levels function:
+ function* fetchBookLevels(action) {
+  try {
+    const levelResponse = yield axios.get('/api/books/levels')
+    console.log('hey levels!', levelResponse);
+    
+    yield put({ type: 'SET_LEVELS', payload: levelResponse.data });
+    console.log('end of fetchBookLevels')
+  } catch (error) {
+    console.log(error);
+  }
+};
+
   // Get specific book
   function* selectBookSaga(action) {
     const getBook = yield axios.get(`/api/books/${action.payload}`)
@@ -64,6 +77,7 @@ function* bookSagas() {
     yield takeEvery('EDIT_BOOK', editBookSaga )
     yield takeEvery('POST_BOOK', postBookSaga)
     yield takeEvery('DELETE_BOOK', deleteBookSaga)
+    yield takeEvery('FETCH_LEVELS', fetchBookLevels)
 }
 
 

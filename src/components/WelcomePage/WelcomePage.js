@@ -19,6 +19,13 @@ class WelcomePage extends Component {
        })
     }
 
+    componentDidMount() {
+        this.props.dispatch({
+            type: 'FETCH_LEVELS',
+        })
+    }
+    
+
     render() {
         return (
             <>
@@ -26,60 +33,14 @@ class WelcomePage extends Component {
                 <h2>Guided Reading Levels</h2>
                 </AppBar>
                 <Grid container>
-                <Button variant="contained" color="inherent" padding="10dp" id='A' onClick = {()=>this.onClick('A')}>
-                Level A
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='B' onClick = {this.onClick}>
-                Level B
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='C' onClick = {()=>this.onClick('C')}>
-                Level C
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='D' onClick = {()=>this.onClick('D')}>
-                Level D
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='E' onClick = {this.onClick}>
-                Level E
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='F' onClick = {this.onClick}>
-                Level F
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='G' onClick = {this.onClick}>
-                Level G
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='H' onClick = {this.onClick}>
-                Level H
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='I' onClick = {this.onClick}>
-                Level I
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='J' onClick = {()=>this.onClick('J')}>
-                Level J
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='K' onClick = {()=>this.onClick('K')}>
-                Level K
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='L' onClick = {this.onClick}>
-                Level L
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='M' onClick = {()=>this.onClick('M')}>
-                Level M
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='N' onClick = {this.onClick}>
-                Level N
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='O' onClick = {this.onClick}>
-                Level O
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='P' onClick = {this.onClick}>
-                Level P
-                </Button>
-                <Button variant="contained" color="inherent" padding="10dp" id='Q' onClick = {this.onClick}>
-                Level Q
-                </Button><Button variant="contained" color="inherent" padding="10dp" id='R' onClick = {this.onClick}>
-                Level R
-                </Button>
-
+                
+                {this.props.reduxState.readingLevelsReducer.map(level => {
+                    return ( 
+                        <Button variant="contained" color="inherent" padding="10dp" id = {level.level} onClick = {() => this.onClick(level.level)}>
+                            level {level.level}
+                        </Button>
+                    )
+                })}
                 </Grid>
             </>
         )

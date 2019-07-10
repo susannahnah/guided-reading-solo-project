@@ -17,6 +17,19 @@ router.get('/', (req, res) => {
     })
 })
 
+//GET reading levels:
+router.get('/levels', (req, res) => {
+    const queryText = 'SELECT * FROM "reading_levels" ORDER BY "id"'; 
+    
+    pool.query(queryText)
+    .then((result) => {
+        res.send(result.rows); 
+    })
+    .catch((error) => {
+    console.log('Error completing SELECT level query', error)
+    res.sendStatus(500)
+    })
+})
 
 //GET selected books
 router.get('/:id', (req, res) => {
