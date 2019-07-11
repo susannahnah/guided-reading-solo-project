@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import AppBar from '@material-ui/core/AppBar';
+import './WelcomePage.css';
 
 
 
@@ -29,16 +29,13 @@ class WelcomePage extends Component {
     render() {
         return (
             <>
-                <AppBar position="static">
-                <h2>Guided Reading Levels</h2>
-                </AppBar>
-                <Grid container>
-                
+                <Grid container className='App' > 
                 {this.props.reduxState.readingLevelsReducer.map(level => {
                     return ( 
-                        <Button variant="contained" color="inherent" padding="10dp" id = {level.level} onClick = {() => this.onClick(level.level)}>
-                            level {level.level}
-                        </Button>
+                        <Grid item xs={12} sm={6} md={4} lg={3} className="levelButton" id= {level.level} 
+                            onClick = {() => this.onClick(level.level)}>
+                            Level {level.level}
+                        </Grid>
                     )
                 })}
                 </Grid>
