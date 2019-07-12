@@ -100,13 +100,13 @@ class Nav extends Component {
   render() {
     return (
       <div className='nav'>
-        <Grid container>
-          <IconButton onClick={this.toggleDrawer('left', true)}>
+        <Grid container alignItems="center">
+          <Grid item xs={2}><IconButton onClick={this.toggleDrawer('left', true)}>
             <SvgIcon className="menu-button">
               <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
             </SvgIcon>
-          </IconButton>
-          <h2 className="title">Guided Reading List</h2>
+          </IconButton></Grid>
+          <Grid item xs={10}><h2 className="title">Guided Reading List</h2></Grid>
         </Grid>
         <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           {this.fullList('left')}
