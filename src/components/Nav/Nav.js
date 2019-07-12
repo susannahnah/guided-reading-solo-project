@@ -25,6 +25,7 @@ class Nav extends Component {
     this.setState({ ...this.state, [side]: open });
   };
 
+
   fullList = side => (
     <div
       styles={{ width: 250 }}
@@ -33,12 +34,12 @@ class Nav extends Component {
     >
       <List>
         <ListItem>
-          <Link className="nav-link" to="/welcome">
+          <Link className="nav-link blue" to="/welcome">
             Home
           </Link>
         </ListItem>
         <ListItem>
-          <Link className="nav-link" to="/about">
+          <Link className="nav-link blue" to="/about">
             About
           </Link>
         </ListItem>
@@ -46,7 +47,7 @@ class Nav extends Component {
         <ListItem>
         </ListItem>
         <ListItem>
-          <Link className="nav-link" to="/welcomeadmin">
+          <Link className="nav-link blue" to="/welcomeadmin">
              {/* Show this link if they are logged in or not,
             //       but call this link 'Home' if they are logged in,
             //       and call this link 'Login / Register' if they are not */}
@@ -54,7 +55,7 @@ class Nav extends Component {
           </Link>
         </ListItem>
         <ListItem>
-        <LogOutButton className="nav-link" />
+        <LogOutButton className="nav-link blue" />
         </ListItem>
       </List>
 
@@ -105,13 +106,14 @@ class Nav extends Component {
               <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
             </SvgIcon>
           </IconButton>
-          <h2>Guided Reading List</h2>
+          <h2 className="title">Guided Reading List</h2>
         </Grid>
         <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           {this.fullList('left')}
         </Drawer>
     </div>
-    );
+    
+  );
   }
 };
 // Instead of taking everything from state, we just want the user

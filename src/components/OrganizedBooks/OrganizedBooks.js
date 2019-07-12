@@ -16,6 +16,7 @@ class OrganizedBooks extends Component {
 
     componentDidMount() {
         this.getBooks()
+        window.scrollTo(0,0);
     }
 
     handleNewBookClick = () => {
@@ -25,7 +26,7 @@ class OrganizedBooks extends Component {
     handleBackClick = () => {
         this.props.history.push('/welcome')
     };
-    
+
     render() {
         return (
             <>

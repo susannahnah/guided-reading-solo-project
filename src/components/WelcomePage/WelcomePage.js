@@ -32,9 +32,9 @@ class WelcomePage extends Component {
                 <Grid container className='App' > 
                 {this.props.reduxState.readingLevelsReducer.map(level => {
                     return ( 
-                        <Grid item xs={12} sm={6} md={4} lg={3} className="levelButton" id= {level.level} 
+                        <Grid item xs={12} sm={6} md={4} lg={3} className="levelButton blue" id= {level.level} 
                             onClick = {() => this.onClick(level.level)}>
-                            Level {level.level}
+                            <h4>Level</h4><h2>{level.level}</h2>
                         </Grid>
                     )
                 })}
