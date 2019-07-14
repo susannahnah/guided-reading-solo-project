@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import { Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
-
+import './OrganizedBooks.css';
 
 
 class OrganizedBooks extends Component {
@@ -36,7 +36,7 @@ class OrganizedBooks extends Component {
                 <h2>Level {this.props.location.state.level}</h2>
                 </AppBar>
                 <Button variant="contained" color="inherent" onClick={this.handleBackClick}>Back</Button>
-                <Grid container>
+                <Grid container className='bookList'>
                     {this.props.reduxState.allBooksReducer.map(book => {
                        
                         if (book.level === this.props.location.state.level) {

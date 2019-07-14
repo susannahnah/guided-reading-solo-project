@@ -6,6 +6,10 @@
     padding-left: 10px;
 }
 
+.MuiSvgIcon-root {
+	font-size: 4rem !important;
+}
+
 .nav {  
   background-color: rgb(56, 114, 201);
   padding: 10px 0 10px;
