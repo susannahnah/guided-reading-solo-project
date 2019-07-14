@@ -1,0 +1,10 @@
+.specificBook {
+    max-width: 100%;
+    text-align: center;
+}
+
+.media {
+    height: 80vw;
+    width: 50vw;
+    object-fit: contain;
+}
