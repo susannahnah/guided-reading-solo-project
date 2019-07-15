@@ -33,10 +33,12 @@ class OrganizedBooks extends Component {
             {this.props.location.state ?
             <>
                 <AppBar position="static">
-                <h2>Level {this.props.location.state.level}</h2>
+                <Button style={{width:"4vw"}} variant="contained" color="inherent" onClick={this.handleBackClick}>Back</Button>
+                <h2 style={{display:"inline-block"}}>Level {this.props.location.state.level}</h2>
+                
                 </AppBar>
-                <Button variant="contained" color="inherent" onClick={this.handleBackClick}>Back</Button>
-                <Grid container className='bookList' spacing={3}>
+                
+                <Grid container className='bookList' style={{padding:"20px"}} spacing={3}>
                     {this.props.reduxState.allBooksReducer.map(book => {
                        
                         if (book.level === this.props.location.state.level) {

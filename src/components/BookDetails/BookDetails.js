@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid';
+import './BookDetails.css';
 
 class BookDetails extends Component {
 
@@ -39,28 +40,19 @@ class BookDetails extends Component {
         return (
             <>
                 <Button variant="contained" color="inherent" onClick={() => this.handleBackClick(this.props.reduxState.individualBookReducer.level)}>Back</Button>
-                <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                        <h1>
-                            {this.props.reduxState.individualBookReducer.title}
-                        </h1>
-                    </Grid>
-                    <Grid item xs={12}>
-                    <h2>{this.props.reduxState.individualBookReducer.author}</h2>
-                    </Grid>
-                    <br />
-                    <img alt=
+                <Grid container justify="center">
+                    <Grid item xs={5} className="GridItTextCenter">
+                        <img style={{width:"68%"}} className="bookCover" alt=
                         {this.props.reduxState.individualBookReducer.title} src=
                         {this.props.reduxState.individualBookReducer.image} onClick={this.handleClick} />
-                    <br />
-                    <br />
-                    {this.props.reduxState.individualBookReducer.summary}
-                    <br />
-                    <br />
-                    {this.props.reduxState.individualBookReducer.grade}
-                    <br />
-                    <br />
-                    {this.props.reduxState.individualBookReducer.level}
+                    </Grid>
+                    <Grid item xs={5}>
+                    <h1>{this.props.reduxState.individualBookReducer.title}</h1>
+                    <h2>{this.props.reduxState.individualBookReducer.author}</h2>
+                    <p>{this.props.reduxState.individualBookReducer.summary}</p>
+                    <p>{this.props.reduxState.individualBookReducer.grade}</p>
+                    <p>{this.props.reduxState.individualBookReducer.level}</p>
+                    </Grid>
                 </Grid>
                 <br />
                 <br />

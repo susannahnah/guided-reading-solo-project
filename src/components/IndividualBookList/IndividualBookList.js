@@ -5,8 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import './IndividualBookList.css';
-import { makeStyles } from '@material-ui/core/styles';
-
+import Paper from '@material-ui/core/Paper';
 
 
 class IndividualBookList extends Component {
@@ -23,6 +22,7 @@ class IndividualBookList extends Component {
         return (
             
             <Grid item xs={12} sm={6} md={4} lg={3} key={this.props.book.id}>
+                <Paper>
                 <Card className='specificBook' onClick={this.handleClick}>
                     <CardHeader
                         title={this.props.book.title}
@@ -32,8 +32,6 @@ class IndividualBookList extends Component {
                         component="img"
                         className="media"
                         src={this.props.book.image} 
-                    
-                        // title={this.props.books.title + "image"}
                     />
                     {/* <img src={this.props.book.image} onClick={this.handleClick} /> */}
                     {/* <br /> */}
@@ -43,6 +41,7 @@ class IndividualBookList extends Component {
                     <br />
                     <br /> */}
                 </Card>
+                </Paper>
             </Grid>
         )
     }

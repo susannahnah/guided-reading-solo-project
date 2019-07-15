@@ -106,7 +106,7 @@ class Nav extends Component {
               <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
             </SvgIcon>
           </IconButton></Grid>
-          <Grid item xs={10}><h2 className="title">Guided Reading List</h2></Grid>
+          <Grid item xs={10}><h2 className="title">Reading Path</h2></Grid>
         </Grid>
         <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           {this.fullList('left')}

@@ -1,17 +1,18 @@
 .levelButton {
-   	width: 90%;
-   	margin: 15px auto;
+   	width: 80%;
+	height: 80%;   
+	margin: 6px auto;
     text-align: center;
 	cursor:pointer;
-	color:#8d8b8b;	
+	color:#636161;	
 	text-decoration:none;
 	text-shadow:2px 3px 2px #e1e2ed;
     font-family:'Verdana', sans-serif;
     font-weight: bold;
 	display: block;
-	-moz-box-shadow: 3px 4px 0px 0px #5f6161;
-	-webkit-box-shadow: 3px 4px 0px 0px #5f6161;
-	box-shadow: 3px 4px 10px 0px #5f6161;
+	-moz-box-shadow: 3px 4px 0px 0px #2a2b2b;
+	-webkit-box-shadow: 3px 4px 0px 0px #414141;
+	box-shadow: 3px 4px 13px 0px #5f6161;
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
 	background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
 	background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
@@ -23,7 +24,7 @@
 	-moz-border-radius:15px;
 	-webkit-border-radius:15px;
 	border-radius:15px;
-	border:1px solid #d6bcd6;
+	border:1px solid #d4c6d4;
 }
 
 .levelButton:hover {
