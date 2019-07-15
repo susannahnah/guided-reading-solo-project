@@ -1,10 +1,15 @@
 .specificBook {
-    max-width: 100%;
+    max-width: auto;
+    height: 370px;
     text-align: center;
 }
 
 .media {
-    height: 80vw;
-    width: 50vw;
+    margin: 0 auto;
+    height: auto;
+    max-height: 290px;
+    width: auto;
+    max-width: 200px;
     object-fit: contain;
+    
 }

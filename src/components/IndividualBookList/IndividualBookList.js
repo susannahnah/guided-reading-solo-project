@@ -29,8 +29,9 @@ class IndividualBookList extends Component {
                         subheader={this.props.book.author}
                     />
                     <CardMedia
+                        component="img"
                         className="media"
-                        image={this.props.book.image} 
+                        src={this.props.book.image} 
                     
                         // title={this.props.books.title + "image"}
                     />
