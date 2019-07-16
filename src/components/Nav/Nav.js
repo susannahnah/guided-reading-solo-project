@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import AppBar from '@material-ui/core/Appbar';
 import './Nav.css';
 import Grid from '@material-ui/core/Grid';
 import Drawer from '@material-ui/core/Drawer';
@@ -106,7 +105,7 @@ class Nav extends Component {
               <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
             </SvgIcon>
           </IconButton></Grid>
-          <Grid item xs={10}><h2 className="title">Reading Path</h2></Grid>
+          <Grid item xs={10}><h1 className="title">Reading Path</h1></Grid>
         </Grid>
         <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           {this.fullList('left')}
