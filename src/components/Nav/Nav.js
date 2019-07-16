@@ -106,6 +106,7 @@ class Nav extends Component {
             </SvgIcon>
           </IconButton></Grid>
           <Grid item xs={10}><h1 className="title">Reading Path</h1></Grid>
+          {/* <img className="navPic" src="images/librarycat.gif" /> */}
         </Grid>
         <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           {this.fullList('left')}
