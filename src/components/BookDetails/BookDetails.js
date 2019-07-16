@@ -53,6 +53,9 @@ class BookDetails extends Component {
                     <p>{this.props.reduxState.individualBookReducer.grade}</p>
                     <p>{this.props.reduxState.individualBookReducer.level}</p>
                     </Grid>
+                    <Grid item xs={3} className="GridItTextCenter">
+                       <h3><a href={this.props.reduxState.individualBookReducer.library_url}>Library Link</a></h3>
+                    </Grid>
                 </Grid>
                 <br />
                 <br />

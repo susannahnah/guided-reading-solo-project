@@ -1,0 +1,7 @@
+.newBook {
+    margin: 50px;
+}
+
+.submitButton:hover {
+    background-color: blue;
+}

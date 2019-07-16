@@ -84,8 +84,8 @@ router.get('/grade_levels', (req, res) => {
 //POST a new book
 router.post('/', rejectUnauthenticated, (req, res) => {
     const newBook = req.body;
-    const queryText = `INSERT INTO "books" ("title", "author", "image", "level", "grade", "summary")
-                      VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"`;
+    const queryText = `INSERT INTO "books" ("title", "author", "image", "level", "grade", "summary", "library_url")
+                      VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"`;
     const queryValues = [
       newBook.title,
       newBook.author,
@@ -93,6 +93,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
       newBook.level,
       newBook.grade,
       newBook.summary,
+      newBook.library_url
     ];
     pool.query(queryText, queryValues)
       .then((result) => { res.sendStatus(201); 
@@ -117,14 +118,16 @@ router.put('/', rejectUnauthenticated, (req, res) => {
     "level"=$4, 
     "grade"=$5, 
     "summary"=$6
-    WHERE "id"=$7;`, 
+    "library_url"=$7
+    WHERE "id"=$8;`, 
     [
         updatedBook.title, 
         updatedBook.author, 
         updatedBook.image, 
         updatedBook.level, 
         updatedBook.grade, 
-        updatedBook.summary, 
+        updatedBook.summary,
+        updatedBook.library_url, 
         updatedBook.id
     ])
     .then((response) => {
