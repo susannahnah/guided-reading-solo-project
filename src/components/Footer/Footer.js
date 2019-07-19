@@ -8,7 +8,7 @@ import './Footer.css'
 
 const Footer = () => (
   <footer>
-    &copy; SFH
+    &copy; Copyright 2019 Susannah Fujimoto Harris
   </footer>
 );
 
