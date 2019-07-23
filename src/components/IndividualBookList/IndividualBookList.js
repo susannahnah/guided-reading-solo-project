@@ -33,13 +33,6 @@ class IndividualBookList extends Component {
                         className="media"
                         src={this.props.book.image} 
                     />
-                    {/* <img src={this.props.book.image} onClick={this.handleClick} /> */}
-                    {/* <br /> */}
-                    {/* <h2>{this.props.book.title}</h2>
-                    <h3>{this.props.book.author}</h3> */}
-                    {/* <br />
-                    <br />
-                    <br /> */}
                 </Card>
                 </Paper>
             </Grid>
