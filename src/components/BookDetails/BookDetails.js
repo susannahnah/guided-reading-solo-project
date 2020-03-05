@@ -6,6 +6,7 @@ import './BookDetails.css';
 
 class BookDetails extends Component {
 
+//property to select specific book from all books
     componentDidMount() {
         this.props.dispatch({
             type: 'SELECT_BOOK',
@@ -13,6 +14,7 @@ class BookDetails extends Component {
         })
     };
 
+//back button to go back to previous directory/all books organized by reading level 
     handleBackClick = (level) => {
         this.props.history.push({
             pathname: '/organizedbooks',
@@ -22,11 +24,12 @@ class BookDetails extends Component {
         })
     }
 
-
+//edit button to edit specific book detail
     handleEditClick = () => {
         this.props.history.push('/edit')
     };
 
+//deleting specific book from database, once deleted, admin returns to welcome page
     handleDeleteClick = () => {
         this.props.dispatch({
             type: 'DELETE_BOOK',
