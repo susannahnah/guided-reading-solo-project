@@ -10,6 +10,8 @@ import Paper from '@material-ui/core/Paper';
 
 class IndividualBookList extends Component {
 
+//click command to select specific book (image, title, author)
+//user navigated to individual book page after selecting specific book
     handleClick = () => {
         this.props.dispatch({ type: 'SELECT_BOOK', payload: this.props.book.id })
         this.props.history.push(`/bookdetails/${this.props.book.id}`)
