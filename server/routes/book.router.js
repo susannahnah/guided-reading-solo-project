@@ -3,6 +3,7 @@ const pool = require('../modules/pool');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const router = express.Router();
 
+//CRUD process 
 
 // GET all books
 router.get('/', (req, res) => {
@@ -17,7 +18,7 @@ router.get('/', (req, res) => {
     })
 })
 
-//GET reading levels:
+//GET specific reading levels:
 router.get('/levels', (req, res) => {
     const queryText = 'SELECT * FROM "reading_levels" ORDER BY "id"'; 
     
@@ -34,7 +35,6 @@ router.get('/levels', (req, res) => {
 //GET selected books
 router.get('/:id', (req, res) => {
     const queryText = 'SELECT * FROM "books" WHERE "id"=$1'; 
-    console.log('what is going on', req.params.id);
     
     pool.query(queryText, [req.params.id])
     .then((result) => {
@@ -47,7 +47,7 @@ router.get('/:id', (req, res) => {
 })
 
 
-// GET selected genres:
+// GET selected genres - future extention of book searching options:
 router.get('/book_genres', (req, res) => {
     pool.query(`SELECT "genres"."genre", "books"."title" from "genres"
     JOIN "book_genres"
@@ -64,7 +64,7 @@ router.get('/book_genres', (req, res) => {
 });
 
 
-// GET selected grade levels: 
+// GET selected grade levels - future extention of search: 
 router.get('/grade_levels', (req, res) => {
     pool.query(`SELECT "grades"."grade", "books"."title" from "grades"
     JOIN "grade_levels"
@@ -106,7 +106,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   });
 
 
-// Route for updating movie info on database
+// Route for updating specific book info on database
 router.put('/', rejectUnauthenticated, (req, res) => {
     console.log(req.body);
     const updatedBook = req.body;
@@ -141,7 +141,7 @@ router.put('/', rejectUnauthenticated, (req, res) => {
 });
 
 
-// DELETE from database
+// DELETE book from database
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const queryText = 'DELETE FROM "books" WHERE id=$1';
     pool.query(queryText, [req.params.id])
